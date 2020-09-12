@@ -56,11 +56,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dunky11/react-saas-template.git"
-  },
-  "author": "dunky11",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dunky11/react-saas-template/issues"
+    "url": "git+https://github.com/mawusikpodo/blog.git"
   }
 }
