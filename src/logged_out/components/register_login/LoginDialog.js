@@ -11,7 +11,7 @@ import {
   withStyles,
 } from "@material-ui/core";
 import FormDialog from "../../../shared/components/FormDialog";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
+//import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
 
@@ -53,19 +53,19 @@ function LoginDialog(props) {
   const login = useCallback(() => {
     setIsLoading(true);
     setStatus(null);
-    if (loginEmail.current.value !== "test@web.com") {
+    if (loginEmail.current.value !== "") {
       setTimeout(() => {
         setStatus("invalidEmail");
         setIsLoading(false);
       }, 1500);
-    } else if (loginPassword.current.value !== "HaRzwc") {
+    } else if (loginPassword.current.value !== "") {
       setTimeout(() => {
         setStatus("invalidPassword");
         setIsLoading(false);
       }, 1500);
     } else {
       setTimeout(() => {
-        history.push("/c/dashboard");
+        history.push("/blog");
       }, 150);
     }
   }, [setIsLoading, loginEmail, loginPassword, history, setStatus]);
@@ -139,18 +139,6 @@ function LoginDialog(props) {
               control={<Checkbox color="primary" />}
               label={<Typography variant="body1">Remember me</Typography>}
             />
-            {status === "verificationEmailSend" ? (
-              <HighlightedInformation>
-                We have send instructions on how to reset your password to your
-                email address
-              </HighlightedInformation>
-            ) : (
-              <HighlightedInformation>
-                Email is: <b>test@web.com</b>
-                <br />
-                Password is: <b>HaRzwc</b>
-              </HighlightedInformation>
-            )}
           </Fragment>
         }
         actions={

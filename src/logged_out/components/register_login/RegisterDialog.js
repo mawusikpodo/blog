@@ -10,7 +10,7 @@ import {
   withStyles,
 } from "@material-ui/core";
 import FormDialog from "../../../shared/components/FormDialog";
-import HighlightedInformation from "../../../shared/components/HighlightedInformation";
+//import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
 
@@ -205,16 +205,6 @@ function RegisterDialog(props) {
               In order to create an account, you have to accept our terms of
               service.
             </FormHelperText>
-          )}
-          {status === "accountCreated" ? (
-            <HighlightedInformation>
-              We have created your account. Please click on the link in the
-              email we have sent to you before logging in.
-            </HighlightedInformation>
-          ) : (
-            <HighlightedInformation>
-              Registration is disabled until we go live.
-            </HighlightedInformation>
           )}
         </Fragment>
       }

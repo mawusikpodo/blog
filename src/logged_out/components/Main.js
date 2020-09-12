@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
-import AOS from "aos/dist/aos";
+import AOS from "aos";
 import { withStyles } from "@material-ui/core";
 import NavBar from "./navigation/NavBar";
 import Footer from "./footer/Footer";
@@ -29,16 +29,9 @@ function Main(props) {
   const [dialogOpen, setDialogOpen] = useState(null);
   const [isCookieRulesDialogOpen, setIsCookieRulesDialogOpen] = useState(false);
 
-  const selectHome = useCallback(() => {
-    smoothScrollTop();
-    document.title =
-      "WaVer - Free template for building an SaaS or admin application";
-    setSelectedTab("Home");
-  }, [setSelectedTab]);
-
   const selectBlog = useCallback(() => {
     smoothScrollTop();
-    document.title = "WaVer - Blog";
+    document.title = "PreMest - Blog";
     setSelectedTab("Blog");
   }, [setSelectedTab]);
 
@@ -127,11 +120,7 @@ function Main(props) {
         handleMobileDrawerOpen={handleMobileDrawerOpen}
         handleMobileDrawerClose={handleMobileDrawerClose}
       />
-      <Routing
-        blogPosts={blogPosts}
-        selectHome={selectHome}
-        selectBlog={selectBlog}
-      />
+      <Routing blogPosts={blogPosts} selectBlog={selectBlog} />
       <Footer />
     </div>
   );

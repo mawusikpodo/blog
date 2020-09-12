@@ -2,15 +2,15 @@ import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { Switch } from "react-router-dom";
 import PropsRoute from "../../shared/components/PropsRoute";
-import Home from "./home/Home";
+//import Home from "./home/Home";
 import Blog from "./blog/Blog";
 import BlogPost from "./blog/BlogPost";
 
 function Routing(props) {
-  const { blogPosts, selectBlog, selectHome } = props;
+  const { blogPosts, selectBlog } = props;
   return (
     <Switch>
-      {blogPosts.map(post => (
+      {blogPosts.map((post) => (
         <PropsRoute
           /* We cannot use the url here as it contains the get params */
           path={post.url}
@@ -20,18 +20,19 @@ function Routing(props) {
           importImage={post.importImage}
           date={post.date}
           content={post.content}
-          otherArticles={blogPosts.filter(blogPost => blogPost.id !== post.id)}
+          otherArticles={blogPosts.filter(
+            (blogPost) => blogPost.id !== post.id
+          )}
         />
       ))}
       <PropsRoute
         exact
-        path="/blog"
+        path="/"
         component={Blog}
         selectBlog={selectBlog}
         blogPosts={blogPosts}
       />
       )
-      <PropsRoute path="/" component={Home} selectHome={selectHome} />)
     </Switch>
   );
 }
@@ -39,7 +40,7 @@ function Routing(props) {
 Routing.propTypes = {
   blogposts: PropTypes.arrayOf(PropTypes.object),
   selectHome: PropTypes.func.isRequired,
-  selectBlog: PropTypes.func.isRequired
+  selectBlog: PropTypes.func.isRequired,
 };
 
 export default memo(Routing);
