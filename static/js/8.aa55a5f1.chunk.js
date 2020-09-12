@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-saas-template"]=this["webpackJsonpreact-saas-template"]||[]).push([[8],{186:function(t,a,s){t.exports=s.p+"static/media/blogPost4.91208f8c.jpg"}}]);
+//# sourceMappingURL=8.aa55a5f1.chunk.js.map
